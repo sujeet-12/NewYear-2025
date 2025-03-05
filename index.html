@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>2025 NEW YEAR </title>
+       <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+       
+</head>
+<body>
+
+<div class="bubbles">
+      <div id="Gradient1">
+</div>
+<div id="Gradient2">
+</div>
+<div id="Gradient3">
+</div>
+<div id="Gradient4">
+</div>
+<div id="Gradient5">
+</div>
+<div id="Gradient6">
+</div>
+<div id="Gradient7">
+</div>
+</div>
+
+  <div class="cursor"></div>
+  <div id="particles-js"></div>
+   
+    <div class="new">2025</div>
+  <div class="container">
+   
+    <div class="orbit orbit-1"></div>
+    <div class="orbit orbit-2"></div>
+    <div class="orbit orbit-3"></div>
+  
+    <div class="center-content">
+      <div class="year">2025</div>
+      <div class="greeting">HAPPY NEW YEAR</div>
+    </div>
+     
+  </div>
+
+<p>Made by Hritik Gautam</p>
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const cursor = document.querySelector('.cursor');
+      cursor.style.left = `${e.pageX - cursor.offsetWidth / 2}px`;
+      cursor.style.top = `${e.pageY - cursor.offsetHeight / 2}px`;
+    });
+
+    const orbits = document.querySelectorAll('.orbit');
+    const memberDistribution = [4, 3, 3];
+    const images = [
+      'https://thumbs.dreamstime.com/b/html-logo-editorial-illustrative-white-background-eps-download-vector-jpeg-banner-html-logo-editorial-illustrative-white-208329416.jpg?hl=en-US',
+      'https://play-lh.googleusercontent.com/rfWOJQVBHoAZ_B43v0ySFlLmJBLtksVGAxGaFRh2ex4nOmNQ86qzG4sYWV63IKrXlvI?hl=en-US',
+      'https://blog.logrocket.com/wp-content/uploads/2023/06/css-full-page-background.png?hl=en-US',
+      'https://img.freepik.com/free-photo/3d-cartoon-style-character_23-2151033963.jpg?hl=en-US'
+    
+    ];
+
+    orbits.forEach((orbit, orbitIndex) => {
+      const memberCount = memberDistribution[orbitIndex];
+      for (let i = 0; i < memberCount; i++) {
+        const member = document.createElement('div');
+        member.className = 'member';
+
+        const img = document.createElement('img');
+        img.src = images[i % images.length];
+        img.alt = `Member ${i + 1}`;
+        member.appendChild(img);
+
+        const angle = (i / memberCount) * 2 * Math.PI;
+        const radius = 48;
+        member.style.left = `${50 + radius * Math.cos(angle)}%`;
+        member.style.top = `${50 + radius * Math.sin(angle)}%`;
+        member.style.transform = 'translate(-50%, -50%)';
+
+        orbit.appendChild(member);
+      }
+    });
+    
+particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#00ffd5" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" }
+        },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 5, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 6, "direction": "none", "out_mode": "out" }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "repulse": { "distance": 100, "duration": 0.4 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+    
+    
+  </script>
+</body>
+        </html>
